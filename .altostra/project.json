@@ -1,0 +1,57 @@
+[
+	{
+		"id": "ck4l9erc70003w2mphu4aeuox",
+		"name": "Static Website",
+		"description": "Static Website Template",
+		"version": "2019-10-24",
+		"connections": {
+			"ck4l9erc70002w2mpcmcc7dht": {
+				"ck4l9erc70001w2mp15gvdz0m": {
+					"bucketRoot": "/",
+					"from": "ck4l9erc70002w2mpcmcc7dht",
+					"route": "/",
+					"to": "ck4l9erc70001w2mp15gvdz0m",
+					"type": "connection.dependency.cdn-storage"
+				}
+			}
+		},
+		"metadata": {
+			"designer": {
+				"resourcePositions": {
+					"ck4l9erc70001w2mp15gvdz0m": {
+						"x": 800,
+						"y": 350,
+						"z": 0
+					},
+					"ck4l9erc70002w2mpcmcc7dht": {
+						"x": 300,
+						"y": 350,
+						"z": 0
+					}
+				}
+			}
+		},
+		"resources": {
+			"ck4l9erc70001w2mp15gvdz0m": {
+				"accessLevel": "public-read",
+				"filesSources": [
+					{
+						"path": "public",
+						"type": "files-source.project-dir"
+					}
+				],
+				"id": "ck4l9erc70001w2mp15gvdz0m",
+				"name": "site-files",
+				"type": "resource.file-store"
+			},
+			"ck4l9erc70002w2mpcmcc7dht": {
+				"defaultRoot": "index.html",
+				"domainName": "default",
+				"id": "ck4l9erc70002w2mpcmcc7dht",
+				"isSPA": false,
+				"name": "site-cdn",
+				"type": "resource.cdn"
+			}
+		}
+	}
+]
