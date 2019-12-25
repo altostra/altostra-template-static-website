@@ -35,7 +35,7 @@ To learn more about deploying Altostra projects, visit [Altostra's documentation
 ## Uploading Files
 You only need to deploy the project once if you don't make any changes to the architecture design, i.e. you don't change the CDN or Bucket settings.
 
-Whenever you wish to upload updated website files, run in the project root directory:
+Whenever you wish to upload updated website files, run the `sync` command in the project root directory:
 ```sh
 $ alto sync
 ```
