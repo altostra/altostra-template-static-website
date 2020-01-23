@@ -2,7 +2,7 @@
 	"name": "Static Website",
 	"description": "A static website with CDN distribution",
 	"includes": [
-		"/public"
+		"/public/**"
 	],
 	"excludes": [],
 	"blueprints": [
