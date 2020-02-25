@@ -16,8 +16,8 @@
 					"SiteFiles01": {
 						"from": "SiteCdn01",
 						"to": "SiteFiles01",
-						"bucketRoot": "/",
-						"route": "/",
+						"bucketRoot": "",
+						"route": "",
 						"type": "connection.dependency.cdn-storage"
 					}
 				}
