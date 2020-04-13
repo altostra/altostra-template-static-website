@@ -53,7 +53,6 @@
 				},
 				"SiteCdn01": {
 					"defaultRoot": "index.html",
-					"domainName": "default",
 					"isSPA": false,
 					"name": "site-cdn",
 					"type": "resource.cdn",
