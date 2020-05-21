@@ -24,11 +24,19 @@ $ alto init --template static-website
 You can also apply the template to an existing Altostra project from Visual Studio Code by going to the Altostra view in the main toolbar and clickign on "Static Website" in the templates list.
 
 ## Deploying
-To deploy the project, run:
+To deploy the project, you must first create an image of it.
+
+To create an image mamed `my-web-site-image`, run:
 ```sh
-$ alto deploy
+$ alto push my-web-site-image
 ```
-Or use the `DEPLOY` button in Visual Studio Code in the Altostra view.
+
+After an image was push, you need to create a deployment in an environment.
+
+We will create a deployment named `my-web-site` in the default environment: `Production`
+```sh
+$ alto deploy my-web-site:my-web-site-image --new Production
+```
 
 To learn more about deploying Altostra projects, visit [Altostra's documentation](https://docs.altostra.com/getting-started/create-simple-api-project.html#deploying) website.
 
@@ -37,6 +45,7 @@ You only need to deploy the project once if you don't make any changes to the ar
 
 Whenever you wish to upload updated website files, run the `sync` command in the project root directory:
 ```sh
-$ alto sync
+$ alto sync `my-web-site`
 ```
+
 The `sync` command will upload the files to the bucket and it will clear the CDN cache for you.
