@@ -12,12 +12,19 @@
 			"description": "Static Website Template",
 			"version": "2019-10-24",
 			"connections": {
+				"DomainName01": {
+					"SiteCdn01": {
+						"from": "DomainName01",
+						"to": "SiteCdn01",
+						"type": "connection.domain-name"
+					}
+				},
 				"SiteCdn01": {
 					"SiteFiles01": {
-						"from": "SiteCdn01",
-						"to": "SiteFiles01",
 						"bucketRoot": "",
+						"from": "SiteCdn01",
 						"route": "",
+						"to": "SiteFiles01",
 						"type": "connection.dependency.cdn-storage"
 					}
 				}
@@ -25,20 +32,58 @@
 			"metadata": {
 				"designer": {
 					"resourcePositions": {
-						"SiteFiles01": {
-							"x": 800,
-							"y": 350,
+						"DomainName01": {
+							"x": 172,
+							"y": 225,
 							"z": 0
 						},
 						"SiteCdn01": {
-							"x": 300,
-							"y": 350,
+							"x": 409,
+							"y": 282,
+							"z": 0
+						},
+						"SiteFiles01": {
+							"x": 648,
+							"y": 282,
 							"z": 0
 						}
 					}
 				}
 			},
+			"parameters": {
+				"DOMAIN_CERT": {
+					"paths": [
+						"resources/DomainName01/certificate/uri"
+					]
+				},
+				"DOMAIN_NAME": {
+					"paths": [
+						"resources/DomainName01/dnsName"
+					]
+				}
+			},
 			"resources": {
+				"DomainName01": {
+					"certificate": {
+						"type": "cert.stored",
+						"uri": ""
+					},
+					"dnsName": "www.example.com",
+					"id": "DomainName01",
+					"name": "domain-name",
+					"type": "resource.dns.name"
+				},
+				"SiteCdn01": {
+					"defaultRoot": "index.html",
+					"id": "SiteCdn01",
+					"isSPA": false,
+					"name": "site-cdn",
+					"tls": {
+						"httpRedirection": true,
+						"useTLS": true
+					},
+					"type": "resource.cdn"
+				},
 				"SiteFiles01": {
 					"accessLevel": "public-read",
 					"filesSources": [
@@ -47,16 +92,9 @@
 							"type": "files-source.project-dir"
 						}
 					],
+					"id": "SiteFiles01",
 					"name": "site-files",
-					"type": "resource.file-store",
-					"id": "SiteFiles01"
-				},
-				"SiteCdn01": {
-					"defaultRoot": "index.html",
-					"isSPA": false,
-					"name": "site-cdn",
-					"type": "resource.cdn",
-					"id": "SiteCdn01"
+					"type": "resource.file-store"
 				}
 			}
 		}
