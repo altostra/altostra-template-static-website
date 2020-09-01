@@ -66,9 +66,9 @@
 				"DomainName01": {
 					"certificate": {
 						"type": "cert.stored",
-						"uri": "arn:aws:acm:us-east-1:123415165762:certificate/7e2e43a5-272d-4489-b523-70ac94520eb4"
+						"uri": ""
 					},
-					"dnsName": "www.blog-demo.com",
+					"dnsName": "www.example.com",
 					"id": "DomainName01",
 					"name": "domain-name",
 					"type": "resource.dns.name"
