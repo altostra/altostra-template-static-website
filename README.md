@@ -4,6 +4,7 @@ Use this template to create a static website that is published over a CDN.
 The template is made of two resources: 
 - An S3 Bucket
 - A CloudFront CDN
+- Domain Name
 
 ## Website Files
 The template comes with an example website that consists of two files:
