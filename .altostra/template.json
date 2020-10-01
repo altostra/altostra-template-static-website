@@ -2,7 +2,12 @@
 	"name": "Static Website",
 	"description": "A static website with CDN distribution",
 	"includes": [
-		"/public/**"
+		"/public/**",
+		"/package*.json",
+		"/.altoignore",
+		"/.gitignore",
+		"/README.md",
+		"/LICENSE"
 	],
 	"excludes": [],
 	"blueprints": [
