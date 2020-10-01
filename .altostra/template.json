@@ -2,7 +2,12 @@
 	"name": "Static Website",
 	"description": "A static website with CDN distribution",
 	"includes": [
-		"/public/**"
+		"/public/**",
+		"/package*.json",
+		"/.altoignore",
+		"/.gitignore",
+		"/README.md",
+		"/LICENSE"
 	],
 	"excludes": [],
 	"blueprints": [
@@ -12,13 +17,6 @@
 			"description": "Static Website Template",
 			"version": "2019-10-24",
 			"connections": {
-				"DomainName01": {
-					"SiteCdn01": {
-						"from": "DomainName01",
-						"to": "SiteCdn01",
-						"type": "connection.domain-name"
-					}
-				},
 				"SiteCdn01": {
 					"SiteFiles01": {
 						"bucketRoot": "",
@@ -27,16 +25,23 @@
 						"to": "SiteFiles01",
 						"type": "connection.dependency.cdn-storage"
 					}
+				},
+				"Domain01": {
+					"SiteCdn01": {
+						"type": "connection.domain",
+						"from": "Domain01",
+						"to": "SiteCdn01",
+						"hostname": "hostname",
+						"certificate": {
+							"type": "cert.stored",
+							"uri": "arn:aws:acm:us-east-1:123456789012:certificate/00000000-0000-0000-0000-000000000000"
+						}
+					}
 				}
 			},
 			"metadata": {
 				"designer": {
 					"resourcePositions": {
-						"DomainName01": {
-							"x": 172,
-							"y": 225,
-							"z": 0
-						},
 						"SiteCdn01": {
 							"x": 409,
 							"y": 282,
@@ -46,33 +51,33 @@
 							"x": 648,
 							"y": 282,
 							"z": 0
+						},
+						"Domain01": {
+							"x": 172,
+							"y": 225,
+							"z": 0
 						}
 					}
 				}
 			},
 			"parameters": {
-				"DOMAIN_CERT": {
+				"DOMAIN": {
 					"paths": [
-						"resources/DomainName01/certificate/uri"
+						"resources/Domain01/domainName"
 					]
 				},
-				"DOMAIN_NAME": {
+				"DOMAIN_HOST_NAME": {
 					"paths": [
-						"resources/DomainName01/dnsName"
+						"connections/Domain01/SiteCdn01/hostname"
+					]
+				},
+				"DOMAIN_CERT": {
+					"paths": [
+						"connections/Domain01/SiteCdn01/certificate/uri"
 					]
 				}
 			},
 			"resources": {
-				"DomainName01": {
-					"certificate": {
-						"type": "cert.stored",
-						"uri": ""
-					},
-					"dnsName": "www.example.com",
-					"id": "DomainName01",
-					"name": "domain-name",
-					"type": "resource.dns.name"
-				},
 				"SiteCdn01": {
 					"defaultRoot": "index.html",
 					"id": "SiteCdn01",
@@ -95,8 +100,16 @@
 					"id": "SiteFiles01",
 					"name": "site-files",
 					"type": "resource.file-store"
+				},
+				"Domain01": {
+					"type": "resource.domain",
+					"name": "domain",
+					"domainName": "example.com",
+					"dnsRegistration": false,
+					"id": "Domain01"
 				}
-			}
+			},
+			"unsafe": false
 		}
 	]
 }
