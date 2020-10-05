@@ -4,11 +4,12 @@ Use this template to create a static website that is published over a CDN.
 ## Getting started
 
 ### Things you'll need 
+1. AWS [SAM-CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 1. An Altostra Account( Don't have one yet? Just [login](https://app.altostra.com) here)
-2. Altostra CLI Installed ([how?](../reference/CLI/altostra-cli.html#installation))
-3. VSCode with Altostra Editor ([how?](../getting-started/installation.html#install-the-visual-studio-code-extension))
-4. A Connected AWS Account ([how?](../getting-started/connect-your-accounts.html#connect-your-cloud-service-accounts))
-5. An Environment connected to your AWS Account ([how?](../howto/envs/manage-environments.html)) - We'll call it `Dev` for berevity, but you can pick any of your environments
+1. Altostra CLI Installed ([how?](../reference/CLI/altostra-cli.html#installation))
+1. VSCode with Altostra Editor ([how?](../getting-started/installation.html#install-the-visual-studio-code-extension))
+1. A Connected AWS Account ([how?](../getting-started/connect-your-accounts.html#connect-your-cloud-service-accounts))
+1. An Environment connected to your AWS Account ([how?](../howto/envs/manage-environments.html)) - We'll call it `Dev` for berevity, but you can pick any of your environments
 
 ### Using the template
 
