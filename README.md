@@ -3,7 +3,7 @@ Use this template to create a static website that is published over a CDN.
 
 ## Getting started
 
-## Things you'll need 
+### Things you'll need 
 1. An Altostra Account( Don't have one yet? Just [login](https://app.altostra.com) here)
 2. Altostra CLI Installed ([how?](../reference/CLI/altostra-cli.html#installation))
 3. VSCode with Altostra Editor ([how?](../getting-started/installation.html#install-the-visual-studio-code-extension))
