@@ -4,7 +4,6 @@ Use this template to create a static website that is published over a CDN.
 ## Getting started
 
 ## Things you'll need for this tutorial
-1. AWS [SAM-CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 1. An Altostra Account (Don't have one yet? Just [login](https://app.altostra.com) here)
 1. Altostra CLI installed (`npm i -g @altostra/cli` or [see docs](../reference/CLI/altostra-cli.html#installation))
 1. Altostra Tools extension for Visual Studio Code ([VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=Altostra.altostra) or [see docs](../getting-started/installation.html#install-the-visual-studio-code-extension))
