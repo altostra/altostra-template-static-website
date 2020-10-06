@@ -25,6 +25,18 @@
 						"to": "SiteFiles01",
 						"type": "connection.dependency.cdn-storage"
 					}
+				},
+				"Domain01": {
+					"SiteCdn01": {
+						"type": "connection.domain",
+						"from": "Domain01",
+						"to": "SiteCdn01",
+						"hostname": "hostname",
+						"certificate": {
+							"type": "cert.stored",
+							"uri": "arn:aws:acm:us-east-1:123456789012:certificate/00000000-0000-0000-0000-000000000000"
+						}
+					}
 				}
 			},
 			"metadata": {
@@ -38,6 +50,11 @@
 						"SiteFiles01": {
 							"x": 648,
 							"y": 282,
+							"z": 0
+						},
+						"Domain01": {
+							"x": 172,
+							"y": 225,
 							"z": 0
 						}
 					}
@@ -67,6 +84,13 @@
 					"id": "SiteFiles01",
 					"name": "site-files",
 					"type": "resource.file-store"
+				},
+				"Domain01": {
+					"type": "resource.domain",
+					"name": "domain",
+					"domainName": "example.com",
+					"dnsRegistration": false,
+					"id": "Domain01"
 				}
 			},
 			"unsafe": false
