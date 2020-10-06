@@ -23,7 +23,7 @@ Alternatively, you can use the Altostra CLI to initialize a new project from the
 $ alto init --template static-website
 ```
 
-You can also apply the template to an existing Altostra project from Visual Studio Code by going 
+You can also apply the template to an existing Altostra project from Visual Studio Code by going
 to the Altostra view in the main toolbar and clickign on "static-website" in the templates list.
 
 ### Project deployment
@@ -69,7 +69,7 @@ $ alto invalidate main --all
 
 ## Content
 
-The template is made of two resources: 
+The template is made of two resources:
 - An S3 Bucket
 - A CloudFront CDN
 
@@ -78,8 +78,8 @@ The template comes with an example website that consists of two files:
 - index.html
 - style.css
 
-These files are located in the `public` directory in the project root. 
+These files are located in the `public` directory in the project root.
 To change the directory that you wish to upload, modify the bucket resource settings using Altostra.
-For more information, visit 
+For more information, visit
 [Altostra's documentation](https://d1nn0ezj50ac1m.cloudfront.net/howto/create-static-website.html#option-b-design-the-architecture)
 website.
