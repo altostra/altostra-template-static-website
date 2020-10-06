@@ -69,7 +69,7 @@ $ alto invalidate main --all
 
 ## Content
 
-The template is made of three resources: 
+The template is made of two resources: 
 - An S3 Bucket
 - A CloudFront CDN
 
