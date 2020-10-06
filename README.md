@@ -52,7 +52,7 @@ $ alto console
 > $ alto deploy main:v2.0
 >```
 
-### Upload and invalidate site content:
+### Upload and invalidate site content
 
 The infrastructure of our site is ready, but the site contains no content.  
 To complete our web-site we need to upload the site content to its bucket,
