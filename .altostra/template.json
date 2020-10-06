@@ -43,18 +43,7 @@
 					}
 				}
 			},
-			"parameters": {
-				"DOMAIN_HOST_NAME": {
-					"paths": [
-						"connections/Domain01/SiteCdn01/hostname"
-					]
-				},
-				"DOMAIN_CERT": {
-					"paths": [
-						"connections/Domain01/SiteCdn01/certificate/uri"
-					]
-				}
-			},
+			"parameters": {},
 			"resources": {
 				"SiteCdn01": {
 					"defaultRoot": "index.html",
