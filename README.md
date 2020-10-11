@@ -54,7 +54,8 @@ alto push v1.0
 Deploy the image as a new
 [deployment](https://docs.altostra.com/reference/concepts/deployments.html) named `main` in the `Production` environment:
 ```sh
-alto deploy main:v1.0 --new Production # omit "--new Production" to update rather than create
+# omit "--new Production" to update rather than create
+alto deploy main:v1.0 --new Production
 ```
 
 ## View the deployment status and details
@@ -62,15 +63,17 @@ You have two options, list the deployment details in the terminal or open the We
 
 * Using the Altostra CLI:
 ```sh
-alto deployments # list the deployments for the current project
+alto deployments 
 ```
 ```sh
-alto deployments main # show details for the deployment "main"
+# show details for the deployment "main"
+alto deployments main
 ```
 
 * Using the Web Console:
 ```sh
-alto console # will open the Web Console for the current project
+# will open the Web Console for the current project
+alto console
 ```
 
 ## Upload and invalidate site content
