@@ -1,6 +1,7 @@
 # Static Website Template
 
 This is a template for a static website that is published over a CDN.
+
 After you create a project from this template, change and extend it to fit your
 specific requirements.
 
@@ -51,9 +52,9 @@ alto push v1.0
 ```
 
 Deploy the image as a new
-[deployment](https://docs.altostra.com/reference/concepts/deployments.html) named `main` in the `Dev` environment:
+[deployment](https://docs.altostra.com/reference/concepts/deployments.html) named `main` in the `Production` environment:
 ```sh
-alto deploy main:v1.0 --new Dev # omit "--new Dev" to update rather than create
+alto deploy main:v1.0 --new Production # omit "--new Production" to update rather than create
 ```
 
 ## View the deployment status and details
@@ -85,14 +86,14 @@ bucket and CDN must be created on your cloud account before you can upload.
 
 ```shell
 # uploads files for all buckets and makes the files public
-$ alto sync main --all --public
+alto sync main --all --public
 ```
 
 3. Invalidate the CDN cache for the `main` deployment:
 
 ```shell
 # invalidates the cache for all CDNs
-$ alto invalidate main --all
+alto invalidate main --all
 ```
 
 ## Modifying the project
