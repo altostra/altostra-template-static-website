@@ -1,76 +1,120 @@
 # Static Website Template
-Use this template to create a static website that is published over a CDN.
 
-## Getting started
+This is a template for a static website that is published over a CDN.
+After you create a project from this template, change and extend it to fit your
+specific requirements.
 
-## Things you'll need for this tutorial
-1. An Altostra Account (Don't have one yet? Just [login](https://app.altostra.com) here)
-1. Altostra CLI installed (`npm i -g @altostra/cli` or [see docs](../reference/CLI/altostra-cli.html#installation))
-1. Altostra Tools extension for Visual Studio Code ([VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=Altostra.altostra) or [see docs](../getting-started/installation.html#install-the-visual-studio-code-extension))
-1. A connected AWS cloud account ( [Web Console settings](https://app.altostra.com/settings)  or [see docs](../getting-started/connect-your-accounts.html#connect-your-cloud-service-accounts))
-1. An Environment connected to your AWS Account ([Web Console environments](https://app.altostra.com/environments) or [see docs](../howto/envs/manage-environments.html)) - We'll call it `Dev` for berevity, but you can pick any of your environments
+## Before you begin
 
+### 1. Create a free Altostra account
+To create an account, simply login to the [Altostra Web Console](https://app.altostra.com).
 
-### Using the template
-
-You have several options to get started with this template.  
-Either go to the Altostra Web Console and create a new project.  
-When asked to use a template, select "static-website".
-
-Alternatively, you can use the Altostra CLI to initialize a new project from the template by running:
+### 2. Install the Altostra CLI
 ```sh
-$ alto init --template static-website
+# make sure you have Node.js 10 or above installed
+npm install -g @altostra/cli
 ```
 
-You can also apply the template to an existing Altostra project from Visual Studio Code by going
-to the Altostra view in the main toolbar and clickign on "static-website" in the templates list.
+### 3. Connect an a AWS account
+To connect an AWS account, click **Connect Cloud Account** on the [Web Console settings](https://app.altostra.com/settings) page.
 
-### Project deployment
+> If you don't wish to connect your account just yet, you can deploy to the [Playground](https://docs.altostra.com/reference/concepts/playground-environment.html) environment that simulates the cloud without creating actual resources.
 
-Run the following commands to create a deployment image of the project and deploy it as a new instance.
+## Using the template
 
-For more information on each command refer to the [Altostra CLI docs](https://docs.altostra.com/reference/CLI/altostra-cli.html).
+You have several options to get started with this template:
+* Initialize a new project from the Altostra CLI and specify the template:
 
-1. Create an
-[image](https://docs.altostra.com/howto/projects/deploy-project.html#create-a-project-image)
-from the project:
-```shell
-$ altos push v1.0
-```
-2. Deploy the image to a new deployment named `main` in the `Dev` environment:
-```shell
-$ alto deploy main:v1.0 --new Dev
-```
-3. Manage the project in the Altostra Web Console:
-```shell
-$ alto console
+```sh
+mkdir static-website
+cd static-website
+alto init --template static-website
 ```
 
-> To update an existing deployment with new images just omit the `--new` flag and environment name:
-> ```shell
-> $ alto deploy main:v2.0
->```
+* Create a new project from the [Altostra Web Console](https://app.altostra.com/projects), you can select the `static-website` template from the list.
 
-### Upload and invalidate site content
+* Apply the template to an existing Altostra project from Visual Studio Code by going to the Altostra view in the main toolbar and clicking on `static-website` in the templates list.
 
-The infrastructure of our site is ready, but the site contains no content.  
-To complete our web-site we need to upload the site content to its bucket,
-and invalidate the CDN's cache.
+## Deploying the project
 
-1. Upload content of all S3 buckets of `main` deployment:
+Start by logging in from the Altostra CLI:
+```sh
+alto login
+```
+
+>The deployment process is simple and involves a few commands.
+>For more information on each command refer to the [Altostra CLI documentation](https://docs.altostra.com/reference/CLI/altostra-cli.html).
+
+Create an [image](https://docs.altostra.com/howto/projects/deploy-project.html#create-a-project-image) of the project:
+```sh
+alto push v1.0
+```
+
+Deploy the image as a new
+[deployment](https://docs.altostra.com/reference/concepts/deployments.html) named `main` in the `Dev` environment:
+```sh
+alto deploy main:v1.0 --new Dev # omit "--new Dev" to update rather than create
+```
+
+## View the deployment status and details
+You have two options, list the deployment details in the terminal or open the Web Console.
+
+* Using the Altostra CLI:
+```sh
+alto deployments # list the deployments for the current project
+```
+```sh
+alto deployments main # show details for the deployment "main"
+```
+
+* Using the Web Console:
+```sh
+alto console # will open the Web Console for the current project
+```
+
+## Upload and invalidate site content
+
+The infrastructure of our website is ready, but not the content, such as HTML and CSS files.  
+To complete our website deployment we need to upload the content files to the bucket, and invalidate the CDN cache.
+
+1. Wait for the infrastructure deployment to complete before proceeding. The
+bucket and CDN must be created on your cloud account before you can upload.  
+> CDN resources can take up to 20 mins to become available on AWS.
+
+2. Upload the content files for the `main` deployment:
+
 ```shell
+# uploads files for all buckets and makes the files public
 $ alto sync main --all --public
 ```
-2. Invalidate all CDN caches of `main` deployment:
+
+3. Invalidate the CDN cache for the `main` deployment:
+
 ```shell
+# invalidates the cache for all CDNs
 $ alto invalidate main --all
 ```
 
-## Content
+## Modifying the project
+To modify the project, install Altostra Tools for Visual Studio Code:
 
-The template is made of two resources:
-- An S3 Bucket
-- A CloudFront CDN
+From the terminal:
+```sh
+code --install-extension Altostra.altostra
+```
+
+or, search for Altostra Tools in the Visual Studio Code extensions view.
+
+or, directly from the [marketplace](https://marketplace.visualstudio.com/items?itemName=Altostra.altostra).
+
+> The extension adds an Altostra panel and visual additor that help you modify and
+> design the project infrastructure.
+
+## Template content
+
+### Cloud resources
+* S3 Bucket
+* CloudFront CDN
 
 ### Website Files
 The template comes with an example website that consists of two files:
