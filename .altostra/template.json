@@ -1,4 +1,5 @@
 {
+	"type": "altostra",
 	"name": "Static Website",
 	"description": "A static website with CDN distribution",
 	"includes": [
