@@ -32,10 +32,10 @@ code {
 }
 
 .App-link {
-  color: #ED8D1E;
+  color: white;
 }
 
 p {
   font-size: 2em;
-  margin-bottom: 0;
+  margin-bottom: 25px;
 }
